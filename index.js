@@ -1,11 +1,24 @@
-const  matches = require('./src/data/matches.json');
-const fs = require('fs');
+const matches = require("./src/data/matches.json");
+const deliveries = require("./src/data/deliveries.json");
+const fs = require("fs");
 const { matchesPerYear } = require("./src/server/matchesPerYear");
-const { matchesPerTeamPerYear } = require('./src/server/matchesPerTeamPerYear');
-
+const { matchesPerTeamPerYear } = require("./src/server/matchesPerTeamPerYear");
+const { extraRunsConceded } = require("./src/server/extraRunsConceded");
 
 const ans1 = matchesPerYear(matches);
-fs.writeFileSync('./src/public/output/matchesPerYear.json',JSON.stringify(ans1));
+fs.writeFileSync(
+  "./src/public/output/matchesPerYear.json",
+  JSON.stringify(ans1)
+);
 
 const ans2 = matchesPerTeamPerYear(matches);
-fs.writeFileSync('./src/public/output/matchesPerTeamPerYear.json',JSON.stringify(ans2));
+fs.writeFileSync(
+  "./src/public/output/matchesPerTeamPerYear.json",
+  JSON.stringify(ans2)
+);
+
+const ans3 = extraRunsConceded(matches, deliveries);
+fs.writeFileSync(
+  "./src/public/output/extraRunsConceded.json",
+  JSON.stringify(ans3)
+);
