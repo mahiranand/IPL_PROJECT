@@ -6,6 +6,7 @@ const { matchesPerTeamPerYear } = require("./src/server/matchesPerTeamPerYear");
 const { extraRunsConceded } = require("./src/server/extraRunsConceded");
 const { topTenBowler2015 } = require("./src/server/topTenBowler2015");
 const { tossAndMatchWin } = require("./src/server/tossAndMatchWin");
+const { playerOfEverySeason } = require("./src/server/playerOfEverySeason");
 
 const ans1 = matchesPerYear(matches);
 fs.writeFileSync(
@@ -35,4 +36,10 @@ const ans5 = tossAndMatchWin(matches);
 fs.writeFileSync(
   "./src/public/output/tossAndMatchWin.json",
   JSON.stringify(ans5)
+);
+
+const ans6 = playerOfEverySeason(matches);
+fs.writeFileSync(
+  "./src/public/output/playerOfEverySeason.json",
+  JSON.stringify(ans6)
 );
