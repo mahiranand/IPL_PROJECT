@@ -8,6 +8,7 @@ const { topTenBowler2015 } = require("./src/server/topTenBowler2015");
 const { tossAndMatchWin } = require("./src/server/tossAndMatchWin");
 const { playerOfEverySeason } = require("./src/server/playerOfEverySeason");
 const { strikeRateOfBatsman } = require("./src/server/strikeRateOfBatsman");
+const { highestDismissal } = require("./src/server/highestDismissal");
 
 const ans1 = matchesPerYear(matches);
 fs.writeFileSync(
@@ -49,4 +50,10 @@ const ans7 = strikeRateOfBatsman(matches, deliveries, "CA Lynn");
 fs.writeFileSync(
   "./src/public/output/strikeRateOfBatsman.json",
   JSON.stringify(ans7)
+);
+
+const ans8 = highestDismissal(deliveries);
+fs.writeFileSync(
+  "./src/public/output/highestDismissal.json",
+  JSON.stringify(ans8)
 );
